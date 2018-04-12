@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
 import {addActionListener, postAction} from '../cross-document-messaging';
 
 const allowedDomains = ['http://localhost:3000'];
@@ -13,7 +12,7 @@ export class AppComponent {
   innerHash = 'foo';
   message = '';
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor() {
     addActionListener(this, allowedDomains);
   }
 
