@@ -1,0 +1,22 @@
+<div class="app-container">
+  <header>Angular Header</header>
+  <section class="body">
+    <button (click)="sendMessage()">Send Message</button>
+    <button (click)="swapInner()">Swap Inner</button>
+
+    <iframe
+      *ngIf="innerHash === 'foo'"
+      id="foo-container"
+      src="http://localhost:3000/#foo"
+    ></iframe>
+    <iframe
+      *ngIf="innerHash === 'bar'"
+      id="bar-container"
+      src="http://localhost:3000/#bar"
+    ></iframe>
+
+    {{message}}
+  </section>
+  <footer>Angular Footer</footer>
+</div>
+
