@@ -1,19 +1,22 @@
 import React, {Component} from 'react';
 import {watch} from 'redux-easy';
 
-import {addActionListener, postAction} from '../cross-document-messaging';
+import {addActionListener, postActionToParent} from '../cross-document-messaging';
 import logo from './logo.svg';
 import './foo.css';
+
+const parentDomain = 'http://localhost:4200';
+const allowedDomains = [parentDomain];
 
 class Foo extends Component {
   constructor() {
     super();
-    addActionListener();
+    addActionListener(allowedDomains);
   }
 
   sendMessage = () => {
     const msg = 'Hello from React! ' + Date.now();
-    postAction('message', msg);
+    postActionToParent(parentDomain, 'message', msg);
   };
 
   render() {

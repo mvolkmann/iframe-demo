@@ -1,15 +1,15 @@
 import {dispatch} from 'redux-easy';
 
-export function addActionListener() {
+export function addActionListener(allowedDomains) {
   function listener(event) {
     const {data: action, origin} = event;
-    if (action.type !== 'INIT_INSTANCE') {
+    if (allowedDomains.includes(origin)) {
       dispatch(action.type, action.payload);
     }
   }
   window.addEventListener('message', listener, false);
 }
 
-export function postAction(type, payload) {
-  window.parent.postMessage({type, payload}, 'http://localhost:4200');
+export function postActionToParent(parentDomain, type, payload) {
+  window.parent.postMessage({type, payload}, parentDomain);
 }

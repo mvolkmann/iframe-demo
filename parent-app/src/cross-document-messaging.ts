@@ -11,8 +11,6 @@ export function addActionListener(obj, allowedDomains) {
     const {data: action, origin} = event;
     if (allowedDomains.includes(origin)) {
       obj[action.type] = action.payload;
-    } else {
-      console.info('got message from disallowed domain', origin);
     }
   };
   window.addEventListener('message', listener, false);
