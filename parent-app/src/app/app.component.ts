@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {addActionListener, postAction} from '../cross-document-messaging';
 
-const URL_PREFIX = 'http://localhost:3000/#';
+const allowedDomains = ['http://localhost:3000'];
 
 @Component({
   selector: 'app-root',
@@ -14,18 +14,13 @@ export class AppComponent {
   message = '';
 
   constructor(private sanitizer: DomSanitizer) {
-    addActionListener(this);
+    addActionListener(this, allowedDomains);
   }
 
   dispatchSet(path, value) {
     const type = '@@set ' + path;
     const payload = {path, value};
     postAction(type, payload);
-  }
-
-  getInnerUrl() {
-    const url = URL_PREFIX + this.innerHash;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   sendMessage() {

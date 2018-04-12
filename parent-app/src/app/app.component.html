@@ -10,6 +10,11 @@
       src="http://localhost:3000/#foo"
     ></iframe>
     <iframe
+      *ngIf="innerHash === 'foo'"
+      id="foo-container"
+      src="http://localhost:3000/#foo"
+    ></iframe>
+    <iframe
       *ngIf="innerHash === 'bar'"
       id="bar-container"
       src="http://localhost:3000/#bar"
