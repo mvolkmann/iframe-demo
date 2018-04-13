@@ -6,13 +6,11 @@ describe('IframeComponent', () => {
   let component: IframeComponent;
   let fixture: ComponentFixture<IframeComponent>;
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        declarations: [IframeComponent]
-      }).compileComponents();
-    })
-  );
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [IframeComponent]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(IframeComponent);

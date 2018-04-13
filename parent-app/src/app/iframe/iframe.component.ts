@@ -19,10 +19,10 @@ export class IframeComponent implements OnInit {
       this.url = data.url;
     });
     route.paramMap.subscribe(map => {
-      console.log('iframe.component.ts param: map.params =', map.params);
+      console.log('iframe.component.ts param:', map['params']);
     });
     route.queryParamMap.subscribe(map => {
-      console.log('iframe.component.ts query: map.params =', map.params);
+      console.log('iframe.component.ts query:', map['params']);
     });
   }
 
