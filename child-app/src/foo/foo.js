@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {watch} from 'redux-easy';
 
-import {addActionListener, postActionToParent} from '../cross-document-messaging';
+import {
+  addActionListener,
+  postActionToParent
+} from '../cross-document-messaging';
 import logo from './logo.svg';
 import './foo.css';
 

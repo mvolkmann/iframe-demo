@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 import {addActionListener, postAction} from '../cross-document-messaging';
 
 const allowedDomains = ['http://localhost:3000'];
@@ -9,10 +10,9 @@ const allowedDomains = ['http://localhost:3000'];
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  innerHash = 'foo';
   message = '';
 
-  constructor() {
+  constructor(private router: Router) {
     addActionListener(this, allowedDomains);
   }
 
@@ -27,6 +27,8 @@ export class AppComponent {
   }
 
   swapInner() {
-    this.innerHash = this.innerHash === 'foo' ? 'bar' : 'foo';
+    const {url} = this.router;
+    const nextUrl = url === '/bar' ? '/foo' : '/bar';
+    this.router.navigate([nextUrl]);
   }
 }

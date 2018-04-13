@@ -2,24 +2,11 @@
   <header>Angular Header</header>
   <section class="body">
     <button (click)="sendMessage()">Send Message</button>
-    <button (click)="swapInner()">Swap Inner</button>
+    <button (click)="swapInner()">Swap</button>
+    <a routerLink="foo">Foo</a>
+    <a routerLink="bar">Bar</a>
 
-    <iframe
-      *ngIf="innerHash === 'foo'"
-      id="foo-container"
-      src="http://localhost:3000/#foo"
-    ></iframe>
-    <!-- duplicated to demonstrate communication with multiple iframes -->
-    <iframe
-      *ngIf="innerHash === 'foo'"
-      id="foo-container"
-      src="http://localhost:3000/#foo"
-    ></iframe>
-    <iframe
-      *ngIf="innerHash === 'bar'"
-      id="bar-container"
-      src="http://localhost:3000/#bar"
-    ></iframe>
+    <router-outlet></router-outlet>
 
     {{message}}
   </section>

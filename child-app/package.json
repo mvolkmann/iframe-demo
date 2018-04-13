@@ -8,12 +8,14 @@
     "react-hash-route": "^1.0.11",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "redux-easy": "^2.4.3"
+    "redux-easy": "^2.4.4"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "format": "prettier --write 'src/**/*.js'",
+    "start": "react-scripts start"
+  },
+  "devDependencies": {
+    "prettier": "^1.12.0"
   }
 }

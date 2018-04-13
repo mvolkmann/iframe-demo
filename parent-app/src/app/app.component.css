@@ -1,13 +1,18 @@
+/* Style Angular Router links to look like buttons. */
+a[routerLink] {
+  border: solid lightgray 1px;
+  border-radius: 4px;
+  color: black;
+  font-size: 10px;
+  padding: 4px;
+  text-decoration: none;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
   height: 100vh;
-}
-
-#bar-container {
-  height: 54px;
-  width: 100%;
 }
 
 .body {
@@ -19,11 +24,6 @@ button {
   border-radius: 4px;
   margin-bottom: 10px;
   padding: 4px;
-}
-
-#foo-container {
-  height: 220px;
-  width: 100%;
 }
 
 footer {
@@ -40,4 +40,14 @@ header {
   font-weight: bold;
   padding: 10px 0;
   text-align: center;
+}
+
+::ng-deep iframe.bar {
+  height: 54px;
+  width: 100%;
+}
+
+::ng-deep iframe.foo {
+  height: 220px;
+  width: 100%;
 }
